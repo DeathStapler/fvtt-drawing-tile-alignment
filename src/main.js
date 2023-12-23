@@ -1,51 +1,27 @@
 Hooks.once("getSceneControlButtons", (controls) => {
   const alignTool = buttons.find(b => b.name === "Alignment");
   alignTool.tools.push({
-    name: "align-tool",  // just some identifier
-    title: "Alignment Tool",  // more like the label shown in the tooltip
+    name: "dtaligntool",  // just some identifier
+    title: game.i18n.localize("dtalign.name"),  // more like the label shown in the tooltip
     icon: "fas fa-plus-circle",  // a FontAwesome icon to show
     visible: true; //game.user.isGM,  // whether to show the control or not, a boolean or a function that returns a boolean
-    onClick: () => ATL.UpdatePresets(),  // what to do when they click on it
+    onClick: () => main(),  // what to do when they click on it
     button: true  // just being explicit that it should be a button rather than a toggle
   });
 });
 
 
 function main() {
-  // HTML TEMPLATE
-  const html = `
-  <p>Select Tiles or Drawings.</p>
-  <form>
-  	<table>
-  		<tr>
-  			<td><button class="horz-spacing" title="Distribute Horizontal"><i class="fa-regular fa-distribute-spacing-horizontal"></i></button></td>
-  			<td><button class="vert-spacing" title="Distribute Vertical"><i class="fa-regular fa-distribute-spacing-vertical"></i></button></td>
-  			<td><button class="">&nbsp</button></td>
-  		</tr>
-  		<tr>
-  			<td><button class="horz-left" title="Align Horizontal Left"><i class="fa-regular fa-objects-align-left"></i></button></td>
-  			<td><button class="horz-center" title="Align Horizontal Center"><i class="fa-regular fa-objects-align-center-horizontal"></i></button></td>
-  			<td><button class="horz-right" title="Align Horizontal Right"><i class="fa-regular fa-objects-align-right"></i> </button></td>
-  		</tr>
-  		<tr>
-  			<td><button class="vert-top" title="Align Vertical Top"><i class="fa-regular fa-objects-align-top"></i></button></td>
-  			<td><button class="vert-center" title="Align Vertical Center"><i class="fa-regular fa-objects-align-center-vertical"></i></button></td>
-  			<td><button class="vert-bottom" title="Align Vertical Bottom"><i class="fa-regular fa-objects-align-bottom"></i></button></td>
-  		</tr>
-  		<tr>
-  			<td><button class="a-circle" title="Circle"><i class="fa-regular fa-circle"></i></button></td>
-  			<td><button class="a-grid" title="Grid"><i class="fa-regular fa-grid"></i></button></td>
-  			<td><button class="" title="">&nbsp</button></td>
-  			
-  		</td>
-  	</table>
-  </form>
-  `;
-  
+  const template = await renderTemplate('modules/dtaligntool/templates/main-dialog.hbs', {
+    firstW: '100px',
+    secondW: '16px',
+    thirdW: '16px'
+  });
+
   // DIALOG
   let d = new Dialog({
       title: `Alignment Tool`,
-      content: html,
+      content: template,
       buttons: {
         cancel: {
           label: "Close",
