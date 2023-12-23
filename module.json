@@ -11,7 +11,7 @@
     "download": "https://github.com/DeathStapler/fvtt-drawing-tile-alignment/archive/refs/v1.0.0/main.zip",
     "url": "https://github.com/DeathStapler/fvtt-drawing-tile-alignment",
     "manifest": "https://raw.githubusercontent.com/DeathStapler/fvtt-drawing-tile-alignment/v1.0.0/module.json",
-    "esmodules": [
+    "scripts": [
         "/src/main.js"
     ],
     "languages": [
