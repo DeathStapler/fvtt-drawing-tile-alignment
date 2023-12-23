@@ -1,6 +1,6 @@
 Hooks.once("getSceneControlButtons", (controls) => {
-  const drawings = buttons.find(b => b.name === "drawings");
-  const tiles = buttons.find(b => b.name === "tiles");
+  const drawings = controls.find(b => b.name === "drawings");
+  const tiles = controls.find(b => b.name === "tiles");
   const newButton = {
     name: "dtaligntool",  // just some identifier
     title: game.i18n.localize("dtalign.name"),  // more like the label shown in the tooltip
