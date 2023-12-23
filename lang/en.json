@@ -8,5 +8,6 @@
     "dtalign.vertdistribute": "Vertically Distribute",
     "dtalign.horzdistribute": "Horizontally Distribute",
     "dtalign.circle": "Circle",
-    "dtalign.grid": "Grid"
+    "dtalign.grid": "Grid",
+    "dtalign.dialogmessage": "Select Tiles or Drawings"
 }
