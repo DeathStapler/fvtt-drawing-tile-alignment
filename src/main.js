@@ -1,13 +1,16 @@
 Hooks.once("getSceneControlButtons", (controls) => {
-  const alignTool = buttons.find(b => b.name === "Alignment");
-  alignTool.tools.push({
+  const drawings = buttons.find(b => b.name === "drawings");
+  const tiles = buttons.find(b => b.name === "tiles");
+  const newButton = {
     name: "dtaligntool",  // just some identifier
     title: game.i18n.localize("dtalign.name"),  // more like the label shown in the tooltip
     icon: "fas fa-plus-circle",  // a FontAwesome icon to show
     visible: true; //game.user.isGM,  // whether to show the control or not, a boolean or a function that returns a boolean
     onClick: () => main(),  // what to do when they click on it
     button: true  // just being explicit that it should be a button rather than a toggle
-  });
+  };
+  drawings.tools.push(newButton);
+  tiles.tools.push(newButton);
 });
 
 
