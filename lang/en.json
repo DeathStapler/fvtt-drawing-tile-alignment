@@ -4,5 +4,9 @@
     "dtalign.horzalignright": "Horizontal Align Right",
     "dtalign.vertaligntop": "Vertical Align Top",
     "dtalign.vertalignbottom": "Vertical Align Bottom",
-    "dtalign.vertaligncenter": "Vertical Align Center"
+    "dtalign.vertaligncenter": "Vertical Align Center",
+    "dtalign.vertdistribute": "Vertically Distribute",
+    "dtalign.horzdistribute": "Horizontally Distribute",
+    "dtalign.circle": "Circle",
+    "dtalign.grid": "Grid"
 }
