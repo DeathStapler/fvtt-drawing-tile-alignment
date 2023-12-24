@@ -2,7 +2,7 @@
     "id": "dtaligntool",
     "title": "Drawing and Tile Alignment Tool",
     "description": "Easily align tiles and drawings with a click of a button.",
-    "version": "1.0.0",
+    "version": "1.1.1",
     "compatibility": {
       "minimum": "11",
       "verified": "11",
