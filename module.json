@@ -10,7 +10,7 @@
     },
     "download": "https://github.com/DeathStapler/fvtt-drawing-tile-alignment/archive/refs/v1.0.0/main.zip",
     "url": "https://github.com/DeathStapler/fvtt-drawing-tile-alignment",
-    "manifest": "https://raw.githubusercontent.com/DeathStapler/fvtt-drawing-tile-alignment/v1.0.0/module.json",
+    "manifest": "https://github.com/DeathStapler/fvtt-drawing-tile-alignment/v1.0.0/module.json",
     "esmodules": [
         "src/main.js"
     ],
@@ -26,7 +26,7 @@
         "name": "Ray Hodel",
         "discord": "Death_Stapler",
         "email": "ray@hodel.com",
-        "url": ""
+        "url": "https://github.com/DeathStapler/"
       }
     ],
     "readme": "README.md"
