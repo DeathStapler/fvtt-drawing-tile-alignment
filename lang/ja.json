@@ -10,5 +10,8 @@
     "dtalign.horzdistribute": "左右に整列",
     "dtalign.circle": "円",
     "dtalign.grid": "マス目",
-    "dtalign.dialogmessage": "タイルもしくは図形を選択"
+    "dtalign.dialogmessage": "タイルもしくは図形を選択",
+    "dtalign.warningtwo": "十分な図面またはタイルが選択されていません。 少なくとも 2 つの図面またはタイルを選択します。",
+    "dtalign.warningthree": "十分な図面またはタイルが選択されていません。 少なくとも 3 つの図面またはタイルを選択します。",    
+    "dtalign.warningfour": "十分な図面またはタイルが選択されていません。 少なくとも 4 つの図面またはタイルを選択します。"
 }
