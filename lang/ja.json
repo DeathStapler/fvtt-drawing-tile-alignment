@@ -1,0 +1,14 @@
+{
+    "dtalign.name": "配置ツール",
+    "dtalign.horzalignleft": "左揃え",
+    "dtalign.horzaligncenter": "左右中央揃え",
+    "dtalign.horzalignright": "右揃え",
+    "dtalign.vertaligntop": "上揃え",
+    "dtalign.vertalignbottom": "下揃え",
+    "dtalign.vertaligncenter": "上下中央揃え",
+    "dtalign.vertdistribute": "上下に整列",
+    "dtalign.horzdistribute": "左右に整列",
+    "dtalign.circle": "円",
+    "dtalign.grid": "マス目",
+    "dtalign.dialogmessage": "タイルもしくは図形を選択"
+}
