@@ -9,24 +9,41 @@ For example you can left align text to present it in a nicer layout.
 
 Here is an example of horizontally aligning to the center with a vertical distribution.
 
-Before:
-![Left Alignment of Text](images/center-align-before.png)
-
-After:
-![Left Alignment of Text](images/center-align-after.png)
+<table>
+  <tr><th>Before</th><th>After</th></tr>
+  <tr>
+    <td>
+      <img src="images/center-align-before.png">  
+    </td>
+    <td>
+      <img src="images/center-align-after.png">
+    </td>
+  </tr>
+</table>
 
 Here is a small circle.
 
-Before:<br/>
-![Left Alignment of Text](images/circle-small-before.png)
-
-After:<br/>
-![Left Alignment of Text](images/circle-small-after.png)
-
+<table>
+  <tr><th>Before</th><th>After</th></tr>
+  <tr>
+    <td>
+      <img src="images/circle-small-before.png">  
+    </td>
+    <td>
+      <img src="images/circle-small-after.png">
+    </td>
+  </tr>
+</table>
 Here is a bigger circle.
 
-Before:<br/>
-![Left Alignment of Text](images/circle-big-before.png)
-
-After:<br/>
-![Left Alignment of Text](images/circle-big-after.png)
+<table>
+  <tr><th>Before</th><th>After</th></tr>
+  <tr>
+    <td>
+      <img src="images/circle-big-before.png">  
+    </td>
+    <td>
+      <img src="images/circle-big-after.png">
+    </td>
+  </tr>
+</table>
