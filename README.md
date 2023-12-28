@@ -15,4 +15,18 @@ Before:
 After:
 ![Left Alignment of Text](images/center-align-after.png)
 
+Here is a small circle.
 
+Before:<br/>
+![Left Alignment of Text](images/circle-small-before.png)
+
+After:<br/>
+![Left Alignment of Text](images/circle-small-after.png)
+
+Here is a bigger circle.
+
+Before:<br/>
+![Left Alignment of Text](images/circle-big-before.png)
+
+After:<br/>
+![Left Alignment of Text](images/circle-big-after.png)
