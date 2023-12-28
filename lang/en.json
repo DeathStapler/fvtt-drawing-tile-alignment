@@ -10,5 +10,8 @@
     "dtalign.horzdistribute": "Horizontally Distribute",
     "dtalign.circle": "Circle",
     "dtalign.grid": "Grid",
-    "dtalign.dialogmessage": "Select Tiles or Drawings"
+    "dtalign.dialogmessage": "Select Tiles or Drawings",
+    "dtalign.warningtwo": "Not enough Drawings or Tiles selected.  Select at least two Drawings or Tiles.",
+    "dtalign.warningthree": "Not enough Drawings or Tiles selected.  Select at least three Drawings or Tiles.",
+    "dtalign.warningfour": "Not enough Drawings or Tiles selected.  Select at least four Drawings or Tiles."
 }
