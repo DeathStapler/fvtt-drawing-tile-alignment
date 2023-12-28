@@ -86,7 +86,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();
   
   	if (drawings.length <= 2) {
-  		return TDAlignTool.warningMessage("Not enough Drawings or Tiles selected.  Select at least three Drawings or Tiles.");
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningthree") );
   	}
   
   	let leftD = null, rightD = null;
@@ -121,7 +121,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();	
   
   	if (drawings.length <= 2) {
-  		return TDAlignTool.warningMessage("Not enough Drawings or Tiles selected.  Select at least three Drawings or Tiles.");
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningthree") );
   	}
   
   	if (drawings.length > 2) {
@@ -157,7 +157,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();	
   	
   	if (drawings.length <= 1) {
-  		return TDAlignTool.warningMessage("Not enough Drawings or Tiles selected.  Select at least two Drawings or Tiles.");
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningtwo") );
   	}
   
   	if (drawings.length > 1) {
@@ -190,7 +190,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();	
   
   	if (drawings.length <= 1) {
-  		return TDAlignTool.warningMessage("Not enough Drawings or Tiles selected.  Select at least two Drawings or Tiles.");
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningtwo") );
   	}
   
   	if (drawings.length > 1) {
@@ -223,7 +223,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();
   
   	if (drawings.length <= 1) {
-  		return TDAlignTool.warningMessage("Not enough Drawings or Tiles selected.  Select at least two Drawings or Tiles.");
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningtwo") );
   	}
   	
   	var leftPoints = [];
@@ -252,7 +252,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();
   	
   	if (drawings.length <= 1) {
-  		return TDAlignTool.warningMessage("Not enough Drawings or Tiles selected.  Select at least two Drawings or Tiles.");
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningtwo") );
   	}
   
   	var rightPoints = [];
@@ -280,7 +280,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();
   	
   	if (drawings.length <= 1) {
-  		return TDAlignTool.warningMessage("Not enough Drawings or Tiles selected.  Select at least two Drawings or Tiles.");
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningthwo") );
   	}
   
   	var bottomPoints = [];
@@ -307,7 +307,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();
   	
   	if (drawings.length <= 1) {
-  		return TDAlignTool.warningMessage("Not enough Drawings or Tiles selected.  Select at least two Drawings or Tiles.");
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningtwo") );
   	}
   
   	var topPoints = [];
@@ -334,7 +334,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();
   	
   	if (drawings.length <= 3) {
-  		return TDAlignTool.warningMessage("Not enough Drawings or Tiles selected.  Select at least four Drawings or Tiles.");
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningfour") );
   	}
   
   	TDAlignTool.positionInGrid(drawings);
@@ -407,7 +407,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();
   	
   	if (drawings.length <= 3) {
-  		return TDAlignTool.warningMessage("Not enough Drawings or Tiles selected.  Select at least four Drawings or Tiles.");
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningfour") );
   	}
   
   	TDAlignTool.positionInCircle(drawings);
@@ -526,7 +526,6 @@ static onRender(html) {
   static getDrawings() {
   	var drawings  = canvas.drawings.controlled;
   	drawings  = drawings.concat(canvas.tiles.controlled);
-  	//drawings = drawings.concat(canvas.tokens.controlled);
   	return drawings;
   }
 }
