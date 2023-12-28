@@ -280,7 +280,7 @@ static onRender(html) {
   	var drawings = TDAlignTool.getDrawings();
   	
   	if (drawings.length <= 1) {
-  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningthwo") );
+  		return TDAlignTool.warningMessage( game.i18n.localize("dtalign.warningtwo") );
   	}
   
   	var bottomPoints = [];
