@@ -1,87 +1,30 @@
 Hooks.on("getSceneControlButtons", (controls) => {
-  const drawings = controls.find(b => b.name === "drawings");
-  const tiles = controls.find(b => b.name === "tiles");
   const newButton = {
-    name: "dtaligntool", 
+    name: "dtaligntool",
     title: game.i18n.localize("dtalign.name"),
-    icon: "fa fa-objects-align-left", 
-    visible: true, 
-    onClick: () => TDAlignTool.main(),
-    button: true  
+    icon: "fa fa-objects-align-left",
+    visible: true,
+    onChange: () => TDAlignTool.main(),
+    button: true
   };
-  drawings.tools.push(newButton);
-  tiles.tools.push(newButton);
+  controls.drawings.tools.dtaligntool = newButton;
+  controls.tiles.tools.dtaligntool = newButton;
 });
 
 class TDAlignTool {
 
-  static dialog;
-  
-  static async main() {
-    const template = await renderTemplate('modules/dtaligntool/templates/main-dialog.hbs');
+  static dialog = null;
 
-  if (TDAlignTool.dialog instanceof Dialog) { return; }
-    
-    TDAlignTool.dialog = new Dialog({
-      title: `Alignment Tool`,
-      content: template,
-      buttons: {
-        cancel: {
-          label: "Close",
-        },
-      },
-      close: TDAlignTool.dialogClosed,
-      render: TDAlignTool.onRender,
-    }).render(true, { width: 200 });
+  static async main() {
+    if (TDAlignTool.dialog?.rendered) {
+      TDAlignTool.dialog.bringToFront();
+      return;
+    }
+    TDAlignTool.dialog = new TDAlignDialog();
+    TDAlignTool.dialog.render({ force: true });
   }
 
-static dialogClosed() {
-  TDAlignTool.dialog = null;
-}
-    
-static onRender(html) {
-    html.find("button.horz-spacing").click(async () => {
-        await TDAlignTool.horizontalSpacing();
-    });
 
-    html.find("button.vert-spacing").click(async () => {
-        await TDAlignTool.verticalSpacing();
-    });
-
-    html.find("button.horz-left").click(async () => {
-        await TDAlignTool.horizAlignLeft();
-    });
-
-    html.find("button.horz-center").click(async () => {
-        await TDAlignTool.horizAlignCenter();
-    });
-
-    html.find("button.horz-right").click(async () => {
-        await TDAlignTool.horizAlignRight();
-    });
-
-    html.find("button.vert-top").click(async () => {
-        await TDAlignTool.vertAlignTop();
-    });
-
-    html.find("button.vert-center").click(async () => {
-        await TDAlignTool.vertAlignCenter();
-    });
-
-    html.find("button.vert-bottom").click(async () => {
-        await TDAlignTool.vertAlignBottom();
-    });
-
-    html.find("button.a-circle").click(async () => {
-        await TDAlignTool.makeCircle();
-    });
-
-    html.find("button.a-grid").click(async () => {
-        await TDAlignTool.makeGrid();
-    });
-}
-
-  
   static horizontalSpacing() {
   	var drawings = TDAlignTool.getDrawings();
   
@@ -111,7 +54,7 @@ static onRender(html) {
   			updates[drawing.constructor.name] = [];
   		}
   
-  		updates[drawing.constructor.name].push({_id: drawing.document._id, x: newCenter - TDAlignTool.getWidth(drawing)/2});
+  		updates[drawing.constructor.name].push({_id: drawing.document.id, x: newCenter - TDAlignTool.getWidth(drawing)/2});
   	}    
   
   	TDAlignTool.doUpdates(updates);
@@ -147,7 +90,7 @@ static onRender(html) {
   				updates[drawing.constructor.name] = [];
   			}
   
-  			updates[drawing.constructor.name].push({_id: drawing.document._id, y: newCenter - TDAlignTool.getHeight(drawing)/2});
+  			updates[drawing.constructor.name].push({_id: drawing.document.id, y: newCenter - TDAlignTool.getHeight(drawing)/2});
   		}   
   		TDAlignTool.doUpdates(updates); 
   	}
@@ -178,7 +121,7 @@ static onRender(html) {
   					updates[drawing.constructor.name] = [];
   				}
   
-  				updates[drawing.constructor.name].push({_id: drawing.document._id, y: commonCenter - TDAlignTool.getHeight(drawing)/2});
+  				updates[drawing.constructor.name].push({_id: drawing.document.id, y: commonCenter - TDAlignTool.getHeight(drawing)/2});
   			}
   		});
   
@@ -211,7 +154,7 @@ static onRender(html) {
   					updates[drawing.constructor.name] = [];
   				}
   
-  				updates[drawing.constructor.name].push({_id: drawing.document._id, x: commonCenter - TDAlignTool.getWidth(drawing)/2});
+  				updates[drawing.constructor.name].push({_id: drawing.document.id, x: commonCenter - TDAlignTool.getWidth(drawing)/2});
   			
   			}
   		});
@@ -242,7 +185,7 @@ static onRender(html) {
   			updates[drawing.constructor.name] = [];
   		}
   
-  		updates[drawing.constructor.name].push({_id: drawing.document._id, x: commonLeft});
+  		updates[drawing.constructor.name].push({_id: drawing.document.id, x: commonLeft});
   	});
   	TDAlignTool.doUpdates(updates);
   
@@ -271,7 +214,7 @@ static onRender(html) {
   			updates[drawing.constructor.name] = [];
   		}
   
-  		updates[drawing.constructor.name].push({_id: drawing.document._id, x: commonRight - TDAlignTool.getWidth(drawing)});
+  		updates[drawing.constructor.name].push({_id: drawing.document.id, x: commonRight - TDAlignTool.getWidth(drawing)});
   	});
   	TDAlignTool.doUpdates(updates);
   }
@@ -298,7 +241,7 @@ static onRender(html) {
   		if (!Array.isArray(updates[drawing.constructor.name])) {
   			updates[drawing.constructor.name] = [];
   		}
-  		updates[drawing.constructor.name].push({_id: drawing.document._id, y: commonBottom - TDAlignTool.getHeight(drawing)});
+  		updates[drawing.constructor.name].push({_id: drawing.document.id, y: commonBottom - TDAlignTool.getHeight(drawing)});
   	});
   	TDAlignTool.doUpdates(updates);
   }
@@ -325,7 +268,7 @@ static onRender(html) {
   		if (!Array.isArray(updates[drawing.constructor.name])) {
   			updates[drawing.constructor.name] = [];
   		}
-  		updates[drawing.constructor.name].push({_id: drawing.document._id, y: commonTop });
+  		updates[drawing.constructor.name].push({_id: drawing.document.id, y: commonTop });
   	});
   	TDAlignTool.doUpdates(updates);
   }
@@ -396,7 +339,7 @@ static onRender(html) {
   		if (!Array.isArray(updates[obj.constructor.name])) {
   			updates[obj.constructor.name] = [];
   		}
-  		updates[obj.constructor.name].push({_id: obj.document._id, x : topLeftPos.x  + x - TDAlignTool.getWidth(obj)/2, y : topLeftPos.y + y - TDAlignTool.getHeight(obj)/2 });
+  		updates[obj.constructor.name].push({_id: obj.document.id, x : topLeftPos.x  + x - TDAlignTool.getWidth(obj)/2, y : topLeftPos.y + y - TDAlignTool.getHeight(obj)/2 });
   		
   		
   	});
@@ -484,13 +427,13 @@ static onRender(html) {
   		if (!Array.isArray(updates[obj.constructor.name])) {
   			updates[obj.constructor.name] = [];
   		}
-  		updates[obj.constructor.name].push({_id: obj.document._id, x : x - TDAlignTool.getWidth(obj)/2, y : y - TDAlignTool.getHeight(obj)/2});
+  		updates[obj.constructor.name].push({_id: obj.document.id, x : x - TDAlignTool.getWidth(obj)/2, y : y - TDAlignTool.getHeight(obj)/2});
   	});
   	TDAlignTool.doUpdates(updates);
   }
   
   static getHeight(placeable) {
-  	if (placeable instanceof PlaceableObject ) {
+  	if (placeable?.document) {
   		if (placeable.constructor.name == "Tile") {
   			return placeable.document.height;
   		} else if (placeable.constructor.name == "Drawing") {
@@ -502,7 +445,7 @@ static onRender(html) {
   }
   
   static getWidth(placeable) {
-  	if (placeable instanceof PlaceableObject ) {
+  	if (placeable?.document) {
   		if (placeable.constructor.name == "Tile") {
   			return placeable.document.width;
   		} else if (placeable.constructor.name == "Drawing") {
@@ -528,4 +471,49 @@ static onRender(html) {
   	drawings  = drawings.concat(canvas.tiles.controlled);
   	return drawings;
   }
+}
+
+const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
+
+class TDAlignDialog extends HandlebarsApplicationMixin(ApplicationV2) {
+  static DEFAULT_OPTIONS = {
+    id: "dtaligntool-dialog",
+    classes: ["dtaligntool"],
+    position: { width: 200, height: "auto" },
+    window: { title: "Alignment Tool", resizable: false },
+    actions: {
+      horzSpacing: TDAlignDialog.#horzSpacing,
+      vertSpacing: TDAlignDialog.#vertSpacing,
+      horzLeft: TDAlignDialog.#horzLeft,
+      horzCenter: TDAlignDialog.#horzCenter,
+      horzRight: TDAlignDialog.#horzRight,
+      vertTop: TDAlignDialog.#vertTop,
+      vertCenter: TDAlignDialog.#vertCenter,
+      vertBottom: TDAlignDialog.#vertBottom,
+      makeCircle: TDAlignDialog.#makeCircle,
+      makeGrid: TDAlignDialog.#makeGrid
+    }
+  };
+
+  static PARTS = {
+    form: {
+      template: "modules/dtaligntool/templates/main-dialog.hbs"
+    }
+  };
+
+  _onClose(options) {
+    TDAlignTool.dialog = null;
+    super._onClose(options);
+  }
+
+  static async #horzSpacing() { await TDAlignTool.horizontalSpacing(); }
+  static async #vertSpacing() { await TDAlignTool.verticalSpacing(); }
+  static async #horzLeft() { await TDAlignTool.horizAlignLeft(); }
+  static async #horzCenter() { await TDAlignTool.horizAlignCenter(); }
+  static async #horzRight() { await TDAlignTool.horizAlignRight(); }
+  static async #vertTop() { await TDAlignTool.vertAlignTop(); }
+  static async #vertCenter() { await TDAlignTool.vertAlignCenter(); }
+  static async #vertBottom() { await TDAlignTool.vertAlignBottom(); }
+  static async #makeCircle() { await TDAlignTool.makeCircle(); }
+  static async #makeGrid() { await TDAlignTool.makeGrid(); }
 }
