@@ -16,7 +16,7 @@ class TDAlignTool {
 	static dialog = null;
 
 	static async main() {
-		if (TDAlignTool.dialog ? .rendered) {
+		if (TDAlignTool.dialog?.rendered) {
 			TDAlignTool.dialog.bringToFront();
 			return;
 		}
